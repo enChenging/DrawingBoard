@@ -3,8 +3,6 @@ DrawingBoard
 
 [![](https://jitpack.io/v/enChenging/DrawingBoard.svg)](https://jitpack.io/#enChenging/DrawingBoard)
 
-效果图如下：
-
 	
 ## 用法
 
