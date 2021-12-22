@@ -1,7 +1,6 @@
 DrawingBoard
 -
 
-[![](https://jitpack.io/v/enChenging/cameraAndPhotos.svg)](https://jitpack.io/#enChenging/cameraAndPhotos)
 
 效果图如下：
 
@@ -21,7 +20,7 @@ allprojects {
 ```
  在build.gradle文件中的dependencies下添加引用：
 	
-```java
+```kotlin
 implementation 'com.github.enChenging:DrawingBoard:1.0.0'
 ```
 详细使用见工程里的[simple](https://github.com/enChenging/DrawingBoard/tree/master/simple)
