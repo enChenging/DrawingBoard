@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DrawingBoard</string>
+
+    <string name="common_web_title_delete">删除</string>
+    <string name="common_web_title_revoke">撤销</string>
+    <string name="common_web_title_save">保存</string>
+    <string name="common_web_eraser">橡皮擦</string>
+    <string name="common_web_paint_brush">画笔</string>
+    <string name="common_web_paint_rect">矩形</string>
+    <string name="common_web_paint_circle">圆形</string>
+    <string name="common_web_paint_arrow">箭头</string>
+    <string name="common_web_paint_line">直线</string>
+    <string name="common_web_paint_text">写文字</string>
+    <string name="common_pen_not_revoke">无可撤销数据</string>
+    <string name="common_clear">清空</string>
+
+</resources>
