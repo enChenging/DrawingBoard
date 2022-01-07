@@ -1,5 +1,6 @@
 package com.release.drawlibrary
 
+import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.graphics.*
@@ -17,6 +18,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -312,8 +314,6 @@ class DrawingBoardView(context: Context, attrs: AttributeSet?) : View(context, a
         }
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onTouchEvent(event: MotionEvent): Boolean {
 //        Log.d("cyc","event.action === ${event.action}")
         when (event.action) {
@@ -471,13 +471,22 @@ class DrawingBoardView(context: Context, attrs: AttributeSet?) : View(context, a
     /**
      * 弹出popupWidnwo输入text
      */
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @SuppressLint("PrivateApi")
     private fun showTextPop() {
         if (null == mTextPopup) {
             mTextView = EditText(context)
             mTextView?.apply {
-                textCursorDrawable =
-                    ContextCompat.getDrawable(context, R.drawable.common_color_cursor_red)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    textCursorDrawable =
+                        ContextCompat.getDrawable(context, R.drawable.common_color_cursor_red)
+                }else{
+                    try {
+                        val f = TextView::class.java.getDeclaredField("mCursorDrawableRes")
+                        f.isAccessible = true
+                        f[mTextView] = R.drawable.common_color_cursor_red
+                    } catch (ignored: Throwable) {
+                    }
+                }
                 setBackgroundResource(R.drawable.common_edit_bg_line_red)
                 textSize = 14f
                 setTextColor(Color.RED)
