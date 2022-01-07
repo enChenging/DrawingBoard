@@ -20,7 +20,7 @@ allprojects {
  在build.gradle文件中的dependencies下添加引用：
 	
 ```kotlin
-implementation 'com.github.enChenging:DrawingBoard:1.0.0'
+implementation 'com.github.enChenging:DrawingBoard:1.0.1'
 ```
 详细使用见工程里的[simple](https://github.com/enChenging/DrawingBoard/tree/master/simple)
 
