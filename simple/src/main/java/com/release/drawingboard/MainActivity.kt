@@ -19,9 +19,8 @@ import com.release.drawlibrary.DrawingBoardView
 open class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mFirst = true
-    private var mWebView: X5WebView? = null
-    private lateinit var mBottomLayout:CustomNestedScrollView
-    private lateinit var mDrawBoardView:DrawingBoardView
+    private lateinit var mBottomLayout: CustomNestedScrollView
+    private lateinit var mDrawBoardView: DrawingBoardView
     private lateinit var mContainerFl: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +44,7 @@ open class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        when(view.id){
+        when (view.id) {
             R.id.vDeleteTv ->
                 mDrawBoardView.clear()
             R.id.vPaintBrushTv ->
@@ -73,29 +72,21 @@ open class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initWebView() {
-        mWebView = X5WebView(this) {
+        X5WebView(this) {
             if (it > 0 && mFirst) {
                 mDrawBoardView.layoutParams = ConstraintLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, it
                 )
                 mFirst = false
             }
-        }
-        mWebView?.let {
-            it.settings.apply {
-                setAppCachePath(this@MainActivity.getDir("appcache", 0).path)  //设置应用缓存目录
-                databasePath = this@MainActivity.getDir("databases", 0).path   //设置数据库缓存路径
-                setGeolocationDatabasePath(
-                    this@MainActivity.getDir("geolocation", 0).path
-                )//设置定位的数据库路径
-            }
+        }.let {
             it.layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             it.addJavascriptInterface(WebControl(this, it), "webControl")//与js进行交互
             mContainerFl.addView(it)
+            it.loadUrl("https://baijiahao.baidu.com/s?id=1717482400814402987&wfr=spider&for=pc")
         }
-        mWebView?.loadUrl("https://baijiahao.baidu.com/s?id=1717482400814402987&wfr=spider&for=pc")
     }
 }
