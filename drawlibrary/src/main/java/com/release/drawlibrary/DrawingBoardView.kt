@@ -566,7 +566,6 @@ class DrawingBoardView(context: Context, attrs: AttributeSet?) : View(context, a
      * 清空
      */
     fun clear() {
-        mCurPaintModeType = PaintModeType.PEN
         mPaintList.clear()
         mBitmap = null
         //清空缓存画板

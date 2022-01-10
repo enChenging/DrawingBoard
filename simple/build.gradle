@@ -28,5 +28,5 @@ dependencies {
     implementation "com.tencent.tbs:tbssdk:44115"
 
 //    implementation project(':drawlibrary')
-    implementation 'com.github.enChenging:DrawingBoard:1.0.1'
+    implementation 'com.github.enChenging:DrawingBoard:1.0.2'
 }
